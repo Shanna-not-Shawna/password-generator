@@ -27,13 +27,13 @@ function generatePassword() {
   // if invalid input from user
   if (!validCriteria) {
     return "Please Try Again!"
-   
+
   }
 
   var selectedCharacters = [];
   var password = "";
 
-  if(useLower){
+  if (useLower) {
     //add chars to selected
     selectedCharacters.push(...lower);
 
@@ -41,7 +41,7 @@ function generatePassword() {
     password += getRandomCharacter(lower)
   }
 
-  if(useUpper){
+  if (useUpper) {
     //add chars to selected
     selectedCharacters.push(...upper);
 
@@ -49,7 +49,7 @@ function generatePassword() {
     password += getRandomCharacter(upper)
   }
 
-  if(useSpecial){
+  if (useSpecial) {
     //add chars to selected
     selectedCharacters.push(...special);
 
@@ -57,7 +57,7 @@ function generatePassword() {
     password += getRandomCharacter(special)
   }
 
-  if(useNumbers){
+  if (useNumbers) {
     //add chars to selected
     selectedCharacters.push(...numArr);
 
@@ -65,7 +65,7 @@ function generatePassword() {
     password += getRandomCharacter(numArr)
   }
 
-  while(password.length < passwordLength){
+  while (password.length < passwordLength) {
     //add another character until length is reached
     password += getRandomCharacter(selectedCharacters)
   }
