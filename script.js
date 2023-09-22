@@ -48,8 +48,29 @@ function generatePassword() {
     password += getRandomCharacter(lower)
   }
 
+  if(useUpper){
+    //add chars to selected
+    selectedCharacters.push(...upper);
 
-  
+    //make sure password has at least one of this character
+    password += getRandomCharacter(upper)
+  }
+
+  if(useSpecial){
+    //add chars to selected
+    selectedCharacters.push(...special);
+
+    //make sure password has at least one of this character
+    password += getRandomCharacter(special)
+  }
+
+  if(useNumbers){
+    //add chars to selected
+    selectedCharacters.push(...numArr);
+
+    //make sure password has at least one of this character
+    password += getRandomCharacter(numArr)
+  }
 
   while(password.length < passwordLength){
     //add another character
