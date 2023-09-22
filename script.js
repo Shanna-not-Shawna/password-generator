@@ -10,7 +10,6 @@ var useNumbers = false;
 var useUpper = false;
 var useLower = false;
 
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -22,19 +21,13 @@ function writePassword() {
 
 }
 
-
-
-
-// input fields have .value on click 
-// need an event listener click event
-// make generatePassword function
-
-
 function generatePassword() {
   var validCriteria = promptUser();
 
+  // if invalid input from user
   if (!validCriteria) {
     return "Please Try Again!"
+   
   }
 
   var selectedCharacters = [];
@@ -93,11 +86,19 @@ function getRandomCharacter(arr) {
 function promptUser() {// add condition to be between 8 and 129 characters
   passwordLength = window.prompt("How many characters do you want your password to be?");
 
+  // check for empty string
+  if (!passwordLength) {
+    window.alert("Please enter a valid number!");
+    return false;
+  }
+
+  // check for numerical input
   if (isNaN(passwordLength)) {
     window.alert("Please enter a valid Number!");
     return false;
   }
 
+  // change string to number
   passwordLength = parseInt(passwordLength);
 
   if (passwordLength < 8 || passwordLength > 128) {
