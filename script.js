@@ -37,7 +37,7 @@ function generatePassword() {
     //add chars to selected
     selectedCharacters.push(...lower);
 
-    //make sure password has at least one of this character
+    //make sure password has at least one of this character type
     password += getRandomCharacter(lower)
   }
 
@@ -45,7 +45,7 @@ function generatePassword() {
     //add chars to selected
     selectedCharacters.push(...upper);
 
-    //make sure password has at least one of this character
+    //make sure password has at least one of this character type
     password += getRandomCharacter(upper)
   }
 
@@ -53,7 +53,7 @@ function generatePassword() {
     //add chars to selected
     selectedCharacters.push(...special);
 
-    //make sure password has at least one of this character
+    //make sure password has at least one of this character type
     password += getRandomCharacter(special)
   }
 
@@ -61,12 +61,12 @@ function generatePassword() {
     //add chars to selected
     selectedCharacters.push(...numArr);
 
-    //make sure password has at least one of this character
+    //make sure password has at least one of this character type
     password += getRandomCharacter(numArr)
   }
 
   while(password.length < passwordLength){
-    //add another character
+    //add another character until length is reached
     password += getRandomCharacter(selectedCharacters)
   }
 
@@ -83,7 +83,7 @@ function getRandomCharacter(arr) {
 }
 // loop generates 1 character at a time and stops when the number of characters entered is reached
 
-function promptUser() {// add condition to be between 8 and 129 characters
+function promptUser() {
   passwordLength = window.prompt("How many characters do you want your password to be?");
 
   // check for empty string
@@ -101,21 +101,22 @@ function promptUser() {// add condition to be between 8 and 129 characters
   // change string to number
   passwordLength = parseInt(passwordLength);
 
+  // check if number is within range
   if (passwordLength < 8 || passwordLength > 128) {
     window.alert("Please enter a number between 8 and 128.");
     return false;
   }
 
-  // if true, include special in Math.random calculation
+  // if true, push array contents into selectedCharacters
   useSpecial = window.confirm("Would you like special characters included?");
 
-  // if true, include numbers in Math.random calculation
+  // if true, push array contents into selectedCharacters
   useNumbers = window.confirm("Would you like numbers included?");
 
-  // if true, upper numbers in Math.random calculation
+  // if true, push array contents into selectedCharacters
   useUpper = window.confirm("Would you like uppercase letters included?");
 
-  // if true, include lower in Math.random calculation
+  // if true, push array contents into selectedCharacters
   useLower = window.confirm("would you like lowercase letters included?");
 
   if (!useSpecial && !useNumbers && !useUpper && !useLower) {
@@ -126,10 +127,6 @@ function promptUser() {// add condition to be between 8 and 129 characters
   return true;
 
 }
-
-// ***if all are false, need an alert saying you must pick one
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
