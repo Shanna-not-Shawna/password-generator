@@ -18,7 +18,7 @@ This password generator was created with HTML, CSS and JavaScript and will gener
 Here is the live website. [Try it out!](https://shanna-not-shawna.github.io/password-generator/)
 
 
-![Screenshot of password generator](./assets/pwgeneratorscreenshot.png)
+![Screenshot of password generator](./assets/passwordgen.png)
 
 ## Credits
 
