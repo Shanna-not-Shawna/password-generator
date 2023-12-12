@@ -117,7 +117,7 @@ function promptUser() {
   useUpper = window.confirm("Would you like uppercase letters included?");
 
   // if true, push array contents into selectedCharacters
-  useLower = window.confirm("would you like lowercase letters included?");
+  useLower = window.confirm("Would you like lowercase letters included?");
 
   if (!useSpecial && !useNumbers && !useUpper && !useLower) {
     window.alert("Please select at least one character type");
