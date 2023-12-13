@@ -27,19 +27,10 @@ function generatePassword() {
   // if invalid input from user
   if (!validCriteria) {
     return "Please Try Again!"
-
   }
 
   var selectedCharacters = [];
   var password = "";
-
-  if (useLower) {
-    //add chars to selected
-    selectedCharacters.push(...lower);
-
-    //make sure password has at least one of this character type
-    password += getRandomCharacter(lower)
-  }
 
   if (useUpper) {
     //add chars to selected
@@ -47,6 +38,14 @@ function generatePassword() {
 
     //make sure password has at least one of this character type
     password += getRandomCharacter(upper)
+  }
+
+  if (useLower) {
+    //add chars to selected
+    selectedCharacters.push(...lower);
+
+    //make sure password has at least one of this character type
+    password += getRandomCharacter(lower)
   }
 
   if (useSpecial) {
@@ -130,3 +129,8 @@ function promptUser() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// Future development:
+// Option to use words or characters only for more security
+// Use a form instead of prompts to collect user data
+// Button to generate another password with the same specifications
