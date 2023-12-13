@@ -1,6 +1,6 @@
 
-var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var upper = ["Aqua", "Azure", "Beige", "Black", "Blue", "Brown", "Burgundy", "Coral", "Crimson", "Cyan", "Emerald", "Fuchsia", "Gold", "Green", "Indigo", "Ivory", "Lavender", "Lilac", "Magenta", "Maroon", "Navy", "Olive", "Orange", "Pink", "Purple", "Red", "Silver", "Teal", "Violet", "White", "Yellow", "Amazing", "Beautiful", "Clever", "Delightful", "Elegant", "Fantastic", "Gorgeous", "Happy", "Incredible", "Joyful", "Kind", "Lovely", "Nice", "Outstanding", "Peaceful", "Quiet", "Radiant", "Serene", "Tranquil", "Unique", "Valuable", "Wonderful"]
+var lower = ["appliance", "bed", "blanket", "book", "brush", "cabinet", "chair", "clock", "computer", "cup", "curtain", "desk", "door", "drawer", "faucet", "floor", "fork", "glass", "hanger", "hat", "key", "knife", "lamp", "light", "mirror", "mop", "nail", "needle", "paper", "pen", "pillow", "plate", "pot", "rug", "scissors", "shelf", "shirt", "shoe", "sink", "soap", "sock", "spoon", "stove", "table", "towel", "vase", "wall", "window"]
 var special = ["?", "!", "@", "#", "$", "%", "&", "*"]
 var numArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
