@@ -131,6 +131,6 @@ function promptUser() {
 generateBtn.addEventListener("click", writePassword);
 
 // Future development:
-// Option to use words or characters only for more security
+// Option for standard password with words or characters only for more security
 // Use a form instead of prompts to collect user data
 // Button to generate another password with the same specifications
