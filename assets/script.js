@@ -22,14 +22,17 @@ function writePassword() {
 
 }
 
-function generatePassword() {
+function generatePassword(event) {
+  if (event) {
+    event.preventDefault();
+  }
   var passwordLength = document.querySelector("#length").value;
   var useSpecial = document.querySelector("#special").checked;
   var useNumbers = document.querySelector("#numbers").checked;
   var useUpper = document.querySelector("#upper").checked;
   var useLower = true;
   var selectedCharacters = [];
-  var password = "";
+  var password = ""; 
 
   if (useUpper) {
     //add chars to selected
@@ -127,7 +130,9 @@ function getRandomCharacter(arr) {
 // }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+var generatePassForm = document.querySelector("#generatePassForm");
+generatePassForm.addEventListener("submit", function (event) {
+  writePassword(event)});
 
 // Future development:
 // Option for standard password with words or characters only for more security
