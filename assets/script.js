@@ -6,6 +6,7 @@ var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 var passwordLength = 0;
+var useWords = false;
 var useSpecial = false;
 var useNumbers = false;
 var useUpper = false;
@@ -27,6 +28,7 @@ function generatePassword(event) {
     event.preventDefault();
   }
   var passwordLength = document.querySelector("#length").value;
+  var useWords = document.querySelector("#words").checked;
   var useSpecial = document.querySelector("#special").checked;
   var useNumbers = document.querySelector("#numbers").checked;
   var useUpper = document.querySelector("#upper").checked;
@@ -34,45 +36,52 @@ function generatePassword(event) {
   var selectedCharacters = [];
   var password = ""; 
 
-  if (useUpper) {
-    //add chars to selected
-    selectedCharacters.push(...upper);
+  if (useUpper && useWords) {
+    // add chars to selected
+    selectedCharacters.push(...upperWords);
 
-    //make sure password has at least one of this character type
-    password += getRandomCharacter(upper)
+    // make sure password has at least one of this character type
+    password += getRandomCharacter(upperWords);
+  } else if (useWords) {
+    // add chars to selected
+    selectedCharacters.push(...lowerWords);
+
+    // make sure password has at least one of this character type
+    password += getRandomCharacter(lowerWords);
   }
 
-  if (useLower) {
-    //add chars to selected
+  if (useLower && !useWords) {
+    // add chars to selected
     selectedCharacters.push(...lower);
 
-    //make sure password has at least one of this character type
-    password += getRandomCharacter(lower)
+    // make sure password has at least one of this character type
+    password += getRandomCharacter(lower);
   }
 
   if (useSpecial) {
-    //add chars to selected
+    // add chars to selected
     selectedCharacters.push(...special);
 
-    //make sure password has at least one of this character type
-    password += getRandomCharacter(special)
+    // make sure password has at least one of this character type
+    password += getRandomCharacter(special);
   }
 
   if (useNumbers) {
-    //add chars to selected
+    // add chars to selected
     selectedCharacters.push(...numArr);
 
-    //make sure password has at least one of this character type
-    password += getRandomCharacter(numArr)
+    // make sure password has at least one of this character type
+    password += getRandomCharacter(numArr);
   }
 
   while (password.length < passwordLength) {
-    //add another character until length is reached
-    password += getRandomCharacter(selectedCharacters)
+    // add another character until length is reached
+    password += getRandomCharacter(selectedCharacters);
   }
 
   // acceptance criteria
-  return password
+  console.log(password);
+  return password;
 }
 
 
