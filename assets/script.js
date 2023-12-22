@@ -16,6 +16,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  if (event) {
+    event.preventDefault();
+  }
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -78,9 +82,7 @@ function generatePassword(event) {
     // add another character until length is reached
     password += getRandomCharacter(selectedCharacters);
   }
-
-  // acceptance criteria
-  console.log(password);
+  
   return password;
 }
 
