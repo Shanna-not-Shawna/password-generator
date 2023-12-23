@@ -11,6 +11,7 @@ var useSpecial = false;
 var useNumbers = false;
 var useUpper = false;
 var useLower = false;
+var isFirstClick = true;
 
 var generateBtn = document.querySelector("#generate");
 
@@ -24,6 +25,11 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  if (isFirstClick) {
+    generateBtn.textContent = "Try Again?";
+    isFirstClick = false;
+  }
 
 }
 
@@ -82,7 +88,7 @@ function generatePassword(event) {
     // add another character until length is reached
     password += getRandomCharacter(selectedCharacters);
   }
-  
+
   return password;
 }
 
