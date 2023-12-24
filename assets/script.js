@@ -93,58 +93,11 @@ function generatePassword(event) {
 }
 
 
-
 // Math.floor(Math.random) to generate random character
 function getRandomCharacter(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
-// loop generates 1 character at a time and stops when the number of characters entered is reached
-
-// function promptUser() {
-//   passwordLength = window.prompt("How many characters do you want your password to be?");
-
-//   // check for empty string
-//   if (!passwordLength) {
-//     window.alert("Please enter a valid number!");
-//     return false;
-//   }
-
-//   // check for numerical input
-//   if (isNaN(passwordLength)) {
-//     window.alert("Please enter a valid Number!");
-//     return false;
-//   }
-
-//   // change string to number
-//   passwordLength = parseInt(passwordLength);
-
-//   // check if number is within range
-//   if (passwordLength < 8 || passwordLength > 128) {
-//     window.alert("Please enter a number between 8 and 128.");
-//     return false;
-//   }
-
-//   // if true, push array contents into selectedCharacters
-//   useSpecial = window.confirm("Would you like special characters included?");
-
-//   // if true, push array contents into selectedCharacters
-//   useNumbers = window.confirm("Would you like numbers included?");
-
-//   // if true, push array contents into selectedCharacters
-//   useUpper = window.confirm("Would you like uppercase letters included?");
-
-//   // if true, push array contents into selectedCharacters
-//   useLower = window.confirm("Would you like lowercase letters included?");
-
-//   if (!useSpecial && !useNumbers && !useUpper && !useLower) {
-//     window.alert("Please select at least one character type");
-//     return false;
-//   }
-
-//   return true;
-
-// }
 
 // Add event listener to generate button
 var generatePassForm = document.querySelector("#generatePassForm");
