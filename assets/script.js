@@ -11,7 +11,6 @@ var useSpecial = false;
 var useNumbers = false;
 var useUpper = false;
 var useLower = false;
-var isFirstClick = true;
 
 var generateBtn = document.querySelector("#generate");
 
@@ -23,6 +22,7 @@ function writePassword() {
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  var isFirstClick = true;
 
   passwordText.value = password;
 
@@ -66,6 +66,12 @@ function generatePassword(event) {
 
     // make sure password has at least one of this character type
     password += getRandomCharacter(lower);
+  }
+
+  if (!useWords && useUpper) {
+    selectedCharacters.push(...upper);
+
+    password += getRandomCharacter(upper);
   }
 
   if (useSpecial) {
