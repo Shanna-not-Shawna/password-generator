@@ -103,7 +103,7 @@ function copyText() {
   copyText.select();
   copyText.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(copyText.value);
-  copyText.blur();
+  window.getSelection().removeAllRanges();
 }
 
 // Math.floor(Math.random) to generate random character
@@ -117,7 +117,6 @@ function resetForm() {
 
   form.reset();
   isFirstClick = true;
-
 }
 
 // Add event listener to generate button
