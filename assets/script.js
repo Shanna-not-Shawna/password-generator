@@ -121,4 +121,4 @@ generatePassForm.addEventListener("submit", function (event) {
 // Use a form instead of prompts to collect user data
 // Button to generate another password with the same specifications
 // Reconfigure function to use user's character length when words are selected
-// Add copy to clipboard button
+// Style copy to clipboard button
