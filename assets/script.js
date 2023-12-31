@@ -103,12 +103,21 @@ function copyText() {
   copyText.select();
   copyText.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(copyText.value);
+  copyText.blur();
 }
 
 // Math.floor(Math.random) to generate random character
 function getRandomCharacter(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
+}
+
+function resetForm() {
+  var form = document.getElementById("generatePassForm");
+
+  form.reset();
+  isFirstClick = true;
+
 }
 
 // Add event listener to generate button
