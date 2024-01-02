@@ -112,9 +112,8 @@ const getRandomCharacter = arr => {
   return arr[randomIndex];
 }
 
-function resetForm() {
-  var form = document.getElementById("generatePassForm");
-
+const resetForm = () => {
+  const form = document.getElementById("generatePassForm");
   form.reset();
   isFirstClick = true;
 }
