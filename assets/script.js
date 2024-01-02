@@ -107,7 +107,7 @@ function copyText() {
 }
 
 // Math.floor(Math.random) to generate random character
-function getRandomCharacter(arr) {
+const getRandomCharacter = arr => {
   var randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
@@ -130,3 +130,4 @@ generatePassForm.addEventListener("submit", function (event) {
 // Button to generate another password with the same specifications
 // Reconfigure function to use user's character length when words are selected
 // Style copy to clipboard button
+// Add password tips to page layout
