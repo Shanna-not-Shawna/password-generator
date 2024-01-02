@@ -15,14 +15,14 @@ var useLower = false;
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
+const writePassword = () => {
   if (event) {
     event.preventDefault();
   }
 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  var isFirstClick = true;
+  const password = generatePassword();
+  const passwordText = document.querySelector("#password");
+  const isFirstClick = true;
 
   passwordText.value = password;
 
@@ -30,10 +30,9 @@ function writePassword() {
     generateBtn.textContent = "Generate Again";
     isFirstClick = false;
   }
-
 }
 
-function generatePassword(event) {
+const generatePassword = event => {
   if (event) {
     event.preventDefault();
   }
@@ -98,7 +97,7 @@ function generatePassword(event) {
   return password;
 }
 
-function copyText() {
+const copyText = () => {
   let copyText = document.getElementById("password");
   copyText.select();
   copyText.setSelectionRange(0, 99999);
@@ -119,7 +118,7 @@ const resetForm = () => {
 }
 
 // Add event listener to generate button
-var generatePassForm = document.querySelector("#generatePassForm");
+const generatePassForm = document.querySelector("#generatePassForm");
 generatePassForm.addEventListener("submit", function (event) {
   writePassword(event)});
 
