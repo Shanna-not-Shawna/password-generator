@@ -35,47 +35,33 @@ const generatePassword = event => {
   if (event) {
     event.preventDefault();
   }
-  var passwordLength = document.querySelector("#length").value;
-  var useWords = document.querySelector("#words").checked;
-  var useSpecial = document.querySelector("#special").checked;
-  var useNumbers = document.querySelector("#numbers").checked;
-  var useUpper = document.querySelector("#upper").checked;
-  var useLower = true;
-  var selectedCharacters = [];
-  var password = ""; 
+  const passwordLength = document.querySelector("#length").value;
+  const useWords = document.querySelector("#words").checked;
+  const useSpecial = document.querySelector("#special").checked;
+  const useNumbers = document.querySelector("#numbers").checked;
+  const useUpper = document.querySelector("#upper").checked;
+  const useLower = !useWords || (useUpper && !useWords);
 
-  if (useUpper && useWords) {
-    selectedCharacters.push(...upperWords);
-    password += getRandomCharacter(upperWords);
-  } else if (useWords) {
-    selectedCharacters.push(...lowerWords);
-    password += getRandomCharacter(lowerWords);
-  }
+  const selectedCharacters = [];
+  let password = ""; 
 
-  if (useLower && !useWords) {
-    selectedCharacters.push(...lower);
-    password += getRandomCharacter(lower);
-  }
+  const addCharacters = (arr) => {
+    selectedCharacters.push(...arr);
+    password += getRandomCharacter(arr);
+  };
 
-  if (!useWords && useUpper) {
-    selectedCharacters.push(...upper);
-    password += getRandomCharacter(upper);
-  }
+  if (useUpper && useWords) addCharacters(upperWords);
+  else if (useWords) addCharacters(lowerWords);
+  else if (useLower) addCharacters(lower);
+  else if (useUpper) addCharacters(upper);
 
-  if (useSpecial) {
-    selectedCharacters.push(...special);
-    password += getRandomCharacter(special);
-  }
-
-  if (useNumbers) {
-    selectedCharacters.push(...numArr);
-    password += getRandomCharacter(numArr);
-  }
+  if (useSpecial) addCharacters(special);
+  if (useNumbers) addCharacters(numArr);
 
   while (password.length < passwordLength) {
     password += getRandomCharacter(selectedCharacters);
   }
-
+ 
   return password;
 }
 
