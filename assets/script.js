@@ -1,5 +1,5 @@
-var upperWords = ["Aqua", "Azure", "Beige", "Black", "Blue", "Brown", "Burgundy", "Coral", "Crimson", "Cyan", "Emerald", "Fuchsia", "Gold", "Green", "Indigo", "Ivory", "Lavender", "Lilac", "Magenta", "Maroon", "Navy", "Olive", "Orange", "Pink", "Purple", "Red", "Silver", "Teal", "Violet", "White", "Yellow", "Amazing", "Beautiful", "Clever", "Delightful", "Elegant", "Fantastic", "Gorgeous", "Happy", "Incredible", "Joyful", "Kind", "Lovely", "Nice", "Outstanding", "Peaceful", "Quiet", "Radiant", "Serene", "Tranquil", "Unique", "Valuable", "Wonderful"]
-var lowerWords = ["appliance", "apple", "pineapple", "bed", "pear", "lemon", "lime", "elevator", "remote", "train", "blanket", "book", "brush", "cabinet", "chair", "clock", "computer", "cup", "curtain", "desk", "door", "drawer", "faucet", "floor", "fork", "glass", "hanger", "hat", "key", "knife", "lamp", "light", "mirror", "mop", "nail", "needle", "paper", "pen", "pillow", "plate", "pot", "rug", "scissors", "shelf", "shirt", "shoe", "sink", "soap", "sock", "spoon", "stove", "table", "towel", "vase", "wall", "window"]
+var upperWords = ["Amazing", "Aqua", "Azure", "Beautiful", "Beige", "Black", "Blue", "Brown", "Burgundy", "Clever", "Coral", "Crimson", "Cyan", "Delightful", "Dazzling", "Elegant", "Energetic", "Fantastic", "Friendly", "Gorgeous", "Graceful", "Green", "Happy", "Incredible", "Indigo", "Intelligent", "Ivory", "Joyful", "Kind", "Lavender", "Lilac", "Lovely", "Lively", "Magnificent", "Magenta", "Maroon", "Noble", "Nice", "Noble", "Optimistic", "Outstanding", "Peaceful", "Playful", "Quick", "Radiant", "Red", "Sincere", "Silver", "Talented", "Teal", "Tranquil", "Unique", "Understanding", "Valuable", "Vibrant", "White", "Wonderful", "Witty", "Youthful", "Zealous", "Yellow"]
+var lowerWords = ["airplane", "appliance", "apple", "bed", "blanket", "book", "brush", "cabinet", "car", "chair", "city", "clock", "coffee", "computer", "cup", "curtain", "desk", "door", "drawer", "dog", "elevator", "faucet", "floor", "flower", "fork", "friend", "glass", "hat", "house", "key", "lamp", "lemon", "light", "lime", "mirror", "music", "ocean", "paper", "pen", "pear", "phone", "pineapple", "plate", "pot", "river", "rug", "shoe", "shoes", "school", "scissors", "shelf", "shirt", "sink", "soap", "sock", "spoon", "sun", "table", "train", "tree", "vase", "window"]
 var special = ["?", "!", "@", "#", "$", "%", "&", "*"]
 var numArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -14,7 +14,6 @@ var useLower = false;
 
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
 const writePassword = () => {
   if (event) {
     event.preventDefault();
@@ -46,51 +45,34 @@ const generatePassword = event => {
   var password = ""; 
 
   if (useUpper && useWords) {
-    // add chars to selected
     selectedCharacters.push(...upperWords);
-
-    // make sure password has at least one of this character type
     password += getRandomCharacter(upperWords);
   } else if (useWords) {
-    // add chars to selected
     selectedCharacters.push(...lowerWords);
-
-    // make sure password has at least one of this character type
     password += getRandomCharacter(lowerWords);
   }
 
   if (useLower && !useWords) {
-    // add chars to selected
     selectedCharacters.push(...lower);
-
-    // make sure password has at least one of this character type
     password += getRandomCharacter(lower);
   }
 
   if (!useWords && useUpper) {
     selectedCharacters.push(...upper);
-
     password += getRandomCharacter(upper);
   }
 
   if (useSpecial) {
-    // add chars to selected
     selectedCharacters.push(...special);
-
-    // make sure password has at least one of this character type
     password += getRandomCharacter(special);
   }
 
   if (useNumbers) {
-    // add chars to selected
     selectedCharacters.push(...numArr);
-
-    // make sure password has at least one of this character type
     password += getRandomCharacter(numArr);
   }
 
   while (password.length < passwordLength) {
-    // add another character until length is reached
     password += getRandomCharacter(selectedCharacters);
   }
 
@@ -105,7 +87,6 @@ const copyText = () => {
   window.getSelection().removeAllRanges();
 }
 
-// Math.floor(Math.random) to generate random character
 const getRandomCharacter = arr => {
   var randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
@@ -117,7 +98,6 @@ const resetForm = () => {
   isFirstClick = true;
 }
 
-// Add event listener to generate button
 const generatePassForm = document.querySelector("#generatePassForm");
 generatePassForm.addEventListener("submit", function (event) {
   writePassword(event)});
