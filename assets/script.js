@@ -35,12 +35,12 @@ const generatePassword = event => {
   if (event) {
     event.preventDefault();
   }
+
   const passwordLength = document.querySelector("#length").value;
   const useWords = document.querySelector("#words").checked;
   const useSpecial = document.querySelector("#special").checked;
   const useNumbers = document.querySelector("#numbers").checked;
   const useUpper = document.querySelector("#upper").checked;
-  const useLower = !useWords || (useUpper && !useWords);
 
   const selectedCharacters = [];
   let password = ""; 
@@ -50,10 +50,16 @@ const generatePassword = event => {
     password += getRandomCharacter(arr);
   };
 
-  if (useUpper && useWords) addCharacters(upperWords);
-  else if (useWords) addCharacters(lowerWords);
-  else if (useLower) addCharacters(lower);
-  else if (useUpper) addCharacters(upper);
+  if (useUpper && useWords) {
+     addCharacters(upperWords);
+  } else if (useWords) {
+    addCharacters(lowerWords);
+  } else {
+    addCharacters(lower);
+    if (useUpper) {
+      addCharacters(upper);
+    }
+  }
 
   if (useSpecial) addCharacters(special);
   if (useNumbers) addCharacters(numArr);
