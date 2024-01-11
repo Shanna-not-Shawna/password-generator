@@ -89,6 +89,14 @@ header {
   cursor: pointer;
 }
 
+#btn-clipboard {
+  background-color: gray;
+  line-height: 5px;
+  font-size: 12px;
+  padding: 10px 10px;
+  margin: 3px 3px 30px 3px;
+}
+
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
