@@ -13,6 +13,12 @@ var useUpper = false;
 var useLower = false;
 
 var generateBtn = document.querySelector("#generate");
+var resetBtn = document.querySelector("#reverseBtn");
+
+resetBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  resetForm();
+});
 
 const writePassword = () => {
   if (event) {
@@ -26,9 +32,26 @@ const writePassword = () => {
   passwordText.value = password;
 
   if (isFirstClick) {
-    generateBtn.textContent = "Generate Again";
+    generateBtn.textContent = "Generate Another";
+    resetBtn.style.display = "inline-block";
     isFirstClick = false;
   }
+}
+
+const resetForm = () => {
+  const form = document.getElementById("generatePassForm");
+  form.reset();
+
+  document.querySelector("#words").checked = false;
+  document.querySelector("#special").checked = false;
+  document.querySelector("#numbers").checked = false;
+  document.querySelector("#upper").checked = false;
+  document.querySelector("#length").value = "";
+
+  generateBtn.textContent = "Generate Password";
+  resetBtn.style.display = "none";
+
+  isFirstClick = true;
 }
 
 const generatePassword = event => {
