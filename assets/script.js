@@ -11,6 +11,7 @@ var useSpecial = false;
 var useNumbers = false;
 var useUpper = false;
 var useLower = false;
+var isFirstClick = true;
 
 var generateBtn = document.querySelector("#generate");
 var resetBtn = document.querySelector("#reverseBtn");
@@ -27,7 +28,6 @@ const writePassword = () => {
 
   const password = generatePassword();
   const passwordText = document.querySelector("#password");
-  const isFirstClick = true;
 
   passwordText.value = password;
 
@@ -105,12 +105,6 @@ const copyText = () => {
 const getRandomCharacter = arr => {
   var randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
-}
-
-const resetForm = () => {
-  const form = document.getElementById("generatePassForm");
-  form.reset();
-  isFirstClick = true;
 }
 
 const generatePassForm = document.querySelector("#generatePassForm");
