@@ -21,7 +21,7 @@ resetBtn.addEventListener("click", function (event) {
   resetForm();
 });
 
-const writePassword = () => {
+const writePassword = (event) => {
   if (event) {
     event.preventDefault();
   }
