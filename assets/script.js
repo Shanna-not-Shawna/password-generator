@@ -14,44 +14,12 @@ var useLower = false;
 var isFirstClick = true;
 
 var generateBtn = document.querySelector("#generate");
-var resetBtn = document.querySelector("#reverseBtn");
+var resetBtn = document.querySelector("#resetBtn");
+var container = document.querySelector("#card");
 
-resetBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  resetForm();
-});
-
-const writePassword = (event) => {
-  if (event) {
-    event.preventDefault();
-  }
-
-  const password = generatePassword();
-  const passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-  if (isFirstClick) {
-    generateBtn.textContent = "Generate Another";
-    resetBtn.style.display = "inline-block";
-    isFirstClick = false;
-  }
-}
-
-const resetForm = () => {
-  const form = document.getElementById("generatePassForm");
-  form.reset();
-
-  document.querySelector("#words").checked = false;
-  document.querySelector("#special").checked = false;
-  document.querySelector("#numbers").checked = false;
-  document.querySelector("#upper").checked = false;
-  document.querySelector("#length").value = "";
-
-  generateBtn.textContent = "Generate Password";
-  resetBtn.style.display = "none";
-
-  isFirstClick = true;
+const getRandomCharacter = arr => {
+  var randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
 const generatePassword = event => {
@@ -94,6 +62,56 @@ const generatePassword = event => {
   return password;
 }
 
+const writePassword = (event) => {
+  if (event) {
+    event.preventDefault();
+  }
+
+  const password = generatePassword();
+  const passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+  if (isFirstClick) {
+    generateBtn.textContent = "Generate Another";
+    resetBtn.style.display = "inline-block";
+    isFirstClick = false;
+  }
+}
+
+container.addEventListener("click", function (event) {
+  var target = event.target;
+
+  if (target.id === "resetBtn") {
+    event.preventDefault();
+    resetForm();
+  } else if (target.id === "generate") {
+    event.preventDefault();
+    writePassword(event);
+  }
+});
+
+resetBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  resetForm();
+});
+
+const resetForm = () => {
+  const form = document.getElementById("generatePassForm");
+  form.reset();
+
+  document.querySelector("#words").checked = false;
+  document.querySelector("#special").checked = false;
+  document.querySelector("#numbers").checked = false;
+  document.querySelector("#upper").checked = false;
+  document.querySelector("#length").value = "";
+
+  generateBtn.textContent = "Generate Password";
+  resetBtn.style.display = "none";
+
+  isFirstClick = true;
+}
+
 const copyText = () => {
   let copyText = document.getElementById("password");
   copyText.select();
@@ -102,14 +120,10 @@ const copyText = () => {
   window.getSelection().removeAllRanges();
 }
 
-const getRandomCharacter = arr => {
-  var randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
-}
-
 const generatePassForm = document.querySelector("#generatePassForm");
 generatePassForm.addEventListener("submit", function (event) {
-  writePassword(event)});
+  writePassword(event);
+});
 
 // Future development:
 // Option for standard password with words or characters only for more security
@@ -118,3 +132,4 @@ generatePassForm.addEventListener("submit", function (event) {
 // Reconfigure function to use user's character length when words are selected
 // Style copy to clipboard button
 // Add password tips to page layout
+// Style reset form
