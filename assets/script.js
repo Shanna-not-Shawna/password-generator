@@ -27,19 +27,32 @@ const generatePassword = event => {
     event.preventDefault();
   }
 
-  const passwordLength = document.querySelector("#length").value;
+  const useExactLength = document.querySelector("#useExact").checked;
   const useWords = document.querySelector("#words").checked;
   const useSpecial = document.querySelector("#special").checked;
   const useNumbers = document.querySelector("#numbers").checked;
   const useUpper = document.querySelector("#upper").checked;
+  const passwordLengthInput = document.querySelector("#length");
+  const passwordLength = parseInt(passwordLengthInput.value, 10);
 
   const selectedCharacters = [];
   let password = ""; 
 
   const addCharacters = (arr) => {
-    selectedCharacters.push(...arr);
-    password += getRandomCharacter(arr);
-  };
+    if (useWords) {
+      let randomWord = getRandomCharacter(arr);
+
+      while (randomWord.length > passwordLength - password.length) {
+        randomWord = getRandomCharacter(arr);
+      }
+
+      selectedCharacters.push(...randomWord.split(''));
+      password += randomWord;
+    } else {
+      selectedCharacters.push(...arr);
+      password += getRandomCharacter(arr);
+      }
+    };
 
   if (useUpper && useWords) {
      addCharacters(upperWords);
@@ -55,12 +68,13 @@ const generatePassword = event => {
   if (useSpecial) addCharacters(special);
   if (useNumbers) addCharacters(numArr);
 
-  while (password.length < passwordLength) {
-    password += getRandomCharacter(selectedCharacters);
+  if (useExactLength) {
+    while (password.length < passwordLength) {
+      addCharacters(selectedCharacters);
+    }
   }
- 
   return password;
-}
+};
 
 const writePassword = (event) => {
   if (event) {
