@@ -40,6 +40,7 @@ const generatePassword = event => {
 
   const addCharacters = (arr) => {
     if (useWords) {
+      while (password.length < passwordLength) {
       let randomWord = getRandomCharacter(arr);
 
       while (randomWord.length > passwordLength - password.length) {
@@ -48,11 +49,20 @@ const generatePassword = event => {
 
       selectedCharacters.push(...randomWord.split(''));
       password += randomWord;
-    } else {
-      selectedCharacters.push(...arr);
-      password += getRandomCharacter(arr);
+    } 
+  } else {
+    while (password.length < passwordLength) {
+      let randomChar = getRandomCharacter(arr);
+
+      while (randomChar.length > passwordLength - password.length) {
+        randomChar = getRandomCharacter(arr);
       }
-    };
+
+      selectedCharacters.push(randomChar);
+      password += ranomChar;
+      }
+    }
+  };
 
   if (useUpper && useWords) {
      addCharacters(upperWords);
@@ -68,11 +78,6 @@ const generatePassword = event => {
   if (useSpecial) addCharacters(special);
   if (useNumbers) addCharacters(numArr);
 
-  if (useExactLength) {
-    while (password.length < passwordLength) {
-      addCharacters(selectedCharacters);
-    }
-  }
   return password;
 };
 
@@ -119,6 +124,7 @@ const resetForm = () => {
   document.querySelector("#numbers").checked = false;
   document.querySelector("#upper").checked = false;
   document.querySelector("#length").value = "";
+  document.querySelector("#password").value = "";
 
   generateBtn.textContent = "Generate Password";
   resetBtn.style.display = "none";
