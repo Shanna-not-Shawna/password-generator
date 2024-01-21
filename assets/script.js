@@ -23,6 +23,7 @@ const getRandomCharacter = arr => {
 }
 
 const generatePassword = event => {
+  console.log('Generating password...');
   if (event) {
     event.preventDefault();
   }
@@ -41,25 +42,23 @@ const generatePassword = event => {
   const addCharacters = (arr) => {
     if (useWords) {
       while (password.length < passwordLength) {
-      let randomWord = getRandomCharacter(arr);
-
-      while (randomWord.length > passwordLength - password.length) {
-        randomWord = getRandomCharacter(arr);
+        let randomWord = getRandomCharacter(arr);
+  
+        if (randomWord.length <= passwordLength - password.length) {
+          console.log('Adding word to password:', randomWord);
+          selectedCharacters.push(randomWord);
+          password += randomWord;
+        }
       }
-
-      selectedCharacters.push(...randomWord.split(''));
-      password += randomWord;
-    } 
-  } else {
-    while (password.length < passwordLength) {
-      let randomChar = getRandomCharacter(arr);
-
-      while (randomChar.length > passwordLength - password.length) {
-        randomChar = getRandomCharacter(arr);
-      }
-
-      selectedCharacters.push(randomChar);
-      password += ranomChar;
+    } else {
+      while (password.length < passwordLength) {
+        let randomChar = getRandomCharacter(arr);
+  
+        if (randomChar.length <= passwordLength - password.length) {
+          console.log('Adding char to password:', randomChar);
+          selectedCharacters.push(randomChar);
+          password += randomChar;
+        }
       }
     }
   };
@@ -78,15 +77,18 @@ const generatePassword = event => {
   if (useSpecial) addCharacters(special);
   if (useNumbers) addCharacters(numArr);
 
+  console.log('Generated password', password);
   return password;
 };
 
 const writePassword = (event) => {
+  console.log('Writing password...');
   if (event) {
     event.preventDefault();
   }
 
   const password = generatePassword();
+  console.log('Generated password:', password);
   const passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -99,6 +101,7 @@ const writePassword = (event) => {
 }
 
 container.addEventListener("click", function (event) {
+  console.log('Container click event triggered.');
   var target = event.target;
 
   if (target.id === "resetBtn") {
@@ -111,6 +114,7 @@ container.addEventListener("click", function (event) {
 });
 
 resetBtn.addEventListener("click", function (event) {
+  console.log('Reset button click event triggered.');
   event.preventDefault();
   resetForm();
 });
@@ -142,6 +146,7 @@ const copyText = () => {
 
 const generatePassForm = document.querySelector("#generatePassForm");
 generatePassForm.addEventListener("submit", function (event) {
+  console.log('Form submission event triggered.');
   writePassword(event);
 });
 
