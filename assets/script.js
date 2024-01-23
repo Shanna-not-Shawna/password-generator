@@ -58,6 +58,8 @@ const generatePassword = event => {
           console.log('Adding char to password:', randomChar);
           selectedCharacters.push(randomChar);
           password += randomChar;
+        } else {
+          break;
         }
       }
     }
