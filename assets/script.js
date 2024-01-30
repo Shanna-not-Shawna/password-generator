@@ -39,18 +39,19 @@ const generatePassword = event => {
   const selectedCharacters = [];
   let password = ""; 
 
-  const addCharacters = (arr) => {
+  const addCharacters = (arr, isWord) => {
     if (useWords) {
       while (password.length < passwordLength) {
         let randomChar = getRandomCharacter(arr);
   
         if (randomChar.length <= passwordLength - password.length) {
-          console.log(`Adding ${isword ? 'word' : 'char'} to password:`, randomChar);
+          console.log(`Adding ${isWord ? 'word' : 'char'} to password:`, randomChar);
           selectedCharacters.push(randomChar);
           password += randomChar;
         }
       }
-    };
+    }
+  };
     
     if (useWords && useUpper) {
       addCharacters(lowerWords, true);
