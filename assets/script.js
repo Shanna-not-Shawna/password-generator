@@ -28,7 +28,7 @@ const generatePassword = event => {
     event.preventDefault();
   }
 
-  const useExactLength = document.querySelector("#useExact").checked;
+  // const useExactLength = document.querySelector("#useExact").checked;
   const useWords = document.querySelector("#words").checked;
   const useSpecial = document.querySelector("#special").checked;
   const useNumbers = document.querySelector("#numbers").checked;
@@ -42,42 +42,31 @@ const generatePassword = event => {
   const addCharacters = (arr) => {
     if (useWords) {
       while (password.length < passwordLength) {
-        let randomWord = getRandomCharacter(arr);
-  
-        if (randomWord.length <= passwordLength - password.length) {
-          console.log('Adding word to password:', randomWord);
-          selectedCharacters.push(randomWord);
-          password += randomWord;
-        }
-      }
-    } else {
-      while (password.length < passwordLength) {
         let randomChar = getRandomCharacter(arr);
   
         if (randomChar.length <= passwordLength - password.length) {
-          console.log('Adding char to password:', randomChar);
+          console.log(`Adding ${isword ? 'word' : 'char'} to password:`, randomChar);
           selectedCharacters.push(randomChar);
           password += randomChar;
-        } else {
-          break;
         }
       }
-    }
-  };
-
-  if (useUpper && useWords) {
-     addCharacters(upperWords);
-  } else if (useWords) {
-    addCharacters(lowerWords);
-  } else {
-    addCharacters(lower);
-    if (useUpper) {
+    };
+    
+    if (useWords && useUpper) {
+      addCharacters(lowerWords, true);
+      addCharacters(upperWords, true);
+    } else if (!useWords && useUpper) {
+      addCharacters(lower); 
       addCharacters(upper);
+    } else if (useWords) {
+      addCharacters(lowerWords, true);
+    } else {
+      addCharacters(lower); 
     }
-  }
-
-  if (useSpecial) addCharacters(special);
-  if (useNumbers) addCharacters(numArr);
+  
+    if (useSpecial) addCharacters(special, false); 
+  
+    if (useNumbers) addCharacters(numArr, false);
 
   console.log('Generated password', password);
   return password;
