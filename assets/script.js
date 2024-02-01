@@ -44,7 +44,7 @@ const generatePassword = event => {
       while (password.length < passwordLength) {
         let randomChar = getRandomCharacter(arr);
   
-        if (randomChar.length <= passwordLength - password.length) {
+        if (randomChar.length + passwordLength <= password.length) {
           console.log(`Adding ${isWord ? 'word' : 'char'} to password:`, randomChar);
           selectedCharacters.push(randomChar);
           password += randomChar;
