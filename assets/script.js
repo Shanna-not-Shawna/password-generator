@@ -1,5 +1,5 @@
 var upperWords = ["Adventurous", "Amazing", "Aqua", "Azure", "Beautiful", "Beige", "Black", "Blue", "Blissful", "Brown", "Burgundy", "Bougie", "Charming", "Clever", "Coral", "Crimson", "Cyan", "Daring", "Delightful", "Dazzling", "Elegant", "Energetic", "Ethereal", "Fantastic", "Fascinating", "Friendly", "Gorgeous", "Graceful", "Green", "Harmonious", "Happy", "Incredible", "Indigo", "Intelligent", "Inventive", "Ivory", "Jubilant", "Joyful", "Kind", "Kinetic", "Lavender", "Lilac", "Lovely", "Lively", "Magnificent", "Magenta", "Maroon", "Noble", "Nice", "Optimistic", "Outstanding", "Peaceful", "Playful", "Quick", "Radiant", "Red", "Silver", "Sincere", "Talented", "Teal", "Tranquil", "Unique", "Understanding", "Valuable", "Vibrant", "White", "Wonderful", "Witty", "Youthful", "Zealous", "Yellow"]
-var lowerWords = ["airplane", "appliance", "apple", "bed", "blanket", "book", "brush", "basement", "cabinet", "car", "chair", "city", "clock", "coffee", "computer", "cup", "curtain", "classroom", "desk", "door", "drawer", "dog", "dolphin", "elevator", "elephant", "faucet", "family", "floor", "flower", "fork", "food", "friend", "glass", "hat", "heart", "house", "key", "lamp", "lemon", "light", "lime", "movie", "mirror", "music", "ocean", "paper", "pen", "pear", "phone", "pineapple", "plate", "pot", "river", "rug", "school", "scissors", "shelf", "shirt", "shoe", "sink", "soap", "sock", "spoon", "suitcase", "sun", "table", "telephone", "toothbrush", "time", "train", "tree", "vase", "window", "earthquake"]
+var lowerWords = ["it", "I", "two", "is", "up", "to", "if", "me", "airplane", "appliance", "apple", "bed", "blanket", "book", "brush", "basement", "cabinet", "car", "chair", "city", "clock", "coffee", "computer", "cup", "curtain", "classroom", "desk", "door", "drawer", "dog", "dolphin", "elevator", "elephant", "faucet", "family", "floor", "flower", "fork", "food", "friend", "glass", "hat", "heart", "house", "key", "lamp", "lemon", "light", "lime", "movie", "mirror", "music", "ocean", "paper", "pen", "pear", "phone", "pineapple", "plate", "pot", "river", "rug", "school", "scissors", "shelf", "shirt", "shoe", "sink", "soap", "sock", "spoon", "suitcase", "sun", "table", "telephone", "toothbrush", "time", "train", "tree", "vase", "window", "earthquake"]
 var special = ["?", "!", "@", "#", "$", "%", "&", "*"]
 var numArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -39,19 +39,46 @@ const generatePassword = event => {
   const selectedCharacters = [];
   let password = ""; 
 
-  const addCharacters = (arr, isWord) => {
+const addCharacters = (arr, isWord) => {
     if (useWords) {
       while (password.length < passwordLength) {
+        console.log(`Entering loop. Current password:`, password);
         let randomChar = getRandomCharacter(arr);
+
+        console.log(`randomChar.length:`, randomChar.length);
+        console.log(`password.length:`, password.length);
+        console.log('passwordLength', passwordLength);
   
-        if (randomChar.length + passwordLength <= password.length) {
+        if (randomChar.length + password.length <= passwordLength) {
           console.log(`Adding ${isWord ? 'word' : 'char'} to password:`, randomChar);
           selectedCharacters.push(randomChar);
           password += randomChar;
         }
       }
+    } else {
+      console.log(`Skipping character. Exceeds password length.`);
+      const charSets = [];
+
+      if (useUpper) charSets.push(upper);
+      if (useLower) charSets.push(lower);
+      if (useNumbers) charSets.push(numArr);
+      if (useSpecial) charSets.push(special);
+
+      while (password.length < passwordLength && charSets.length > 0) {
+        const randomSetIndex = Math.floor(Math.random() * charSets.length);
+        const randomSet = charSets[randomSetIndex];
+        let randomChar = getRandomCharacter(randomSet);
+
+      if (randomChar.length + password.length <= passwordLength) {
+        console.log(`Adding char to password:`, randomChar);
+        selectedCharacters.push(randomChar);
+        password += randomChar;
+      } else {
+        charSets.splice(randomSetIndex, 1);
+      }
     }
-  };
+  }
+}
     
     if (useWords && useUpper) {
       addCharacters(lowerWords, true);
