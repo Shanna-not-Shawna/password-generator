@@ -126,8 +126,6 @@ const generatePassword = event => {
   return password;
 };
 
-
-
 const writePassword = (event) => {
   console.log('Writing password...');
   if (event) {
@@ -199,8 +197,6 @@ generatePassForm.addEventListener("submit", function (event) {
 
 // Future development:
 // Option for standard password with words or characters only for more security
-// Use a form instead of prompts to collect user data
-// Button to generate another password with the same specifications
 // Reconfigure function to use user's character length when words are selected
 // Style copy to clipboard button
 // Add password tips to page layout
