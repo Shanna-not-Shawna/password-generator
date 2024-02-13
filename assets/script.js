@@ -22,21 +22,21 @@ const upperCheckbox = document.querySelector("#upper");
 const specialCheckbox = document.querySelector("#special");
 const numbersCheckbox = document.querySelector("#numbers");
 
-// wordsCheckbox.addEventListener("change", () => {
-//   console.log(`'Use Words' checkbox checked: ${wordsCheckbox.checked}`);
-// });
+wordsCheckbox.addEventListener("change", () => {
+  console.log(`'Use Words' checkbox checked: ${wordsCheckbox.checked}`);
+});
 
-// upperCheckbox.addEventListener("change", () => {
-//   console.log(`'Use Upper' checkbox checked: ${upperCheckbox.checked}`);
-// });
+upperCheckbox.addEventListener("change", () => {
+  console.log(`'Use Upper' checkbox checked: ${upperCheckbox.checked}`);
+});
 
-// specialCheckbox.addEventListener("change", () => {
-//   console.log(`'Use Special' checkbox checked: ${specialCheckbox.checked}`);
-// });
+specialCheckbox.addEventListener("change", () => {
+  console.log(`'Use Special' checkbox checked: ${specialCheckbox.checked}`);
+});
 
-// numbersCheckbox.addEventListener("change", () => {
-//   console.log(`'Use Numbers' checkbox checked: ${numbersCheckbox.checked}`);
-// });
+numbersCheckbox.addEventListener("change", () => {
+  console.log(`'Use Numbers' checkbox checked: ${numbersCheckbox.checked}`);
+});
 
 const getRandomCharacter = arr => {
   var randomIndex = Math.floor(Math.random() * arr.length);
@@ -67,7 +67,7 @@ const generatePassword = event => {
 
   const addCharacters = (arr, isWord) => {
     if (!useWords || (useWords && isWord)) {
-      while (password.length < passwordLength) {
+      while (password.length < passwordLength && arr.length > 0) {
         console.log(`Entering loop. Current password:`, password);
         let randomChar = getRandomCharacter(arr);
   
