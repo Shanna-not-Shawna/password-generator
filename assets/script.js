@@ -49,7 +49,7 @@ const generatePassword = event => {
     event.preventDefault();
   }
 
-  const useExactLength = document.querySelector("#useExact").checked;
+  // const useExactLength = document.querySelector("#useExact").checked;
   const useWords = document.querySelector("#words").checked;
   const useSpecial = document.querySelector("#special").checked;
   const useNumbers = document.querySelector("#numbers").checked;
