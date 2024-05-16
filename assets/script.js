@@ -1,5 +1,5 @@
-var upperWords = ["Adventurous", "Amazing", "Aqua", "Azure", "Beautiful", "Beige", "Black", "Blue", "Blissful", "Brown", "Bougie", "Burgundy", "Charming", "Clever", "Coral", "Crimson", "Cyan", "Daring", "Delightful", "Dazzling", "Elegant", "Energetic", "Ethereal", "Fantastic", "Fascinating", "Friendly", "Gorgeous", "Graceful", "Green", "Harmonious", "Happy", "Incredible", "Indigo", "Intelligent", "Inventive", "Ivory", "Jubilant", "Joyful", "Kind", "Kinetic", "Lavender", "Lilac", "Lovely", "Lively", "Magnificent", "Magenta", "Maroon", "Noble", "Nice", "Optimistic", "Outstanding", "Peaceful", "Playful", "Quick", "Radiant", "Red", "Silver", "Sincere", "Talented", "Teal", "Tranquil", "Unique", "Understanding", "Valuable", "Vibrant", "White", "Wonderful", "Witty", "Youthful", "Yellow", "Zealous"]
-var lowerWords = ["air", "airplane", "appliance", "apple", "at", "ax", "basement", "bathtub", "bed", "book", "brush", "cabinet", "car", "chair", "city", "classroom", "clock", "coffee", "computer", "cup", "curtain", "desk", "dog", "dolphin", "door", "drawer", "do", "earthquake", "elevator", "elephant", "faucet", "family", "five", "floor", "flower", "fork", "food", "four", "friend", "glass", "go", "hat", "heart", "house", "if", "in", "is", "it", "key", "lamp", "lemon", "light", "lime", "me", "mirror", "movie", "music", "my", "no", "ocean", "ok", "one", "paper", "pen", "pear", "phone", "pineapple", "plate", "pot", "river", "rug", "school", "scissors", "shelf", "shirt", "shoe", "sink", "soap", "sock", "six", "spoon", "suitcase", "sun", "table", "telephone", "three", "time", "to", "toothbrush", "train", "tree", "two", "up", "us", "vase", "window"]
+// var upperWords = ["Adventurous", "Amazing", "Aqua", "Azure", "Beautiful", "Beige", "Black", "Blue", "Blissful", "Brown", "Bougie", "Burgundy", "Charming", "Clever", "Coral", "Crimson", "Cyan", "Daring", "Delightful", "Dazzling", "Elegant", "Energetic", "Ethereal", "Fantastic", "Fascinating", "Friendly", "Gorgeous", "Graceful", "Green", "Harmonious", "Happy", "Incredible", "Indigo", "Intelligent", "Inventive", "Ivory", "Jubilant", "Joyful", "Kind", "Kinetic", "Lavender", "Lilac", "Lovely", "Lively", "Magnificent", "Magenta", "Maroon", "Noble", "Nice", "Optimistic", "Outstanding", "Peaceful", "Playful", "Quick", "Radiant", "Red", "Silver", "Sincere", "Talented", "Teal", "Tranquil", "Unique", "Understanding", "Valuable", "Vibrant", "White", "Wonderful", "Witty", "Youthful", "Yellow", "Zealous"]
+// var lowerWords = ["air", "airplane", "appliance", "apple", "at", "ax", "basement", "bathtub", "bed", "book", "brush", "cabinet", "car", "chair", "city", "classroom", "clock", "coffee", "computer", "cup", "curtain", "desk", "dog", "dolphin", "door", "drawer", "do", "earthquake", "elevator", "elephant", "faucet", "family", "five", "floor", "flower", "fork", "food", "four", "friend", "glass", "go", "hat", "heart", "house", "if", "in", "is", "it", "key", "lamp", "lemon", "light", "lime", "me", "mirror", "movie", "music", "my", "no", "ocean", "ok", "one", "paper", "pen", "pear", "phone", "pineapple", "plate", "pot", "river", "rug", "school", "scissors", "shelf", "shirt", "shoe", "sink", "soap", "sock", "six", "spoon", "suitcase", "sun", "table", "telephone", "three", "time", "to", "toothbrush", "train", "tree", "two", "up", "us", "vase", "window"]
 var special = ["?", "!", "@", "#", "$", "%", "&", "*"]
 var numArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -66,57 +66,57 @@ const generatePassword = event => {
   }
 
   const addCharacters = (arr, isWord) => {
-    if (!useWords || (useWords && isWord)) {
-      while (password.length < passwordLength && arr.length > 0) {
-        console.log(`Entering loop. Current password:`, password);
-        let randomChar = getRandomCharacter(arr);
+  //   if (!useWords || (useWords && isWord)) {
+  //     while (password.length < passwordLength && arr.length > 0) {
+  //       console.log(`Entering loop. Current password:`, password);
+  //       let randomChar = getRandomCharacter(arr);
   
-        console.log(`randomChar.length:`, randomChar.length);
-        console.log(`password.length:`, password.length);
-        console.log('passwordLength', passwordLength);
+  //       console.log(`randomChar.length:`, randomChar.length);
+  //       console.log(`password.length:`, password.length);
+  //       console.log('passwordLength', passwordLength);
   
-        if (randomChar.length + password.length <= passwordLength) {
-          console.log(`Adding ${isWord ? 'word' : 'char'} to password:`, randomChar);
-          selectedCharacters.push(randomChar);
-          password += randomChar;
-        }
-      }
-    } else {
-      console.log(`Skipping character. Exceeds password length.`);
-      const charSets = [];
+  //       if (randomChar.length + password.length <= passwordLength) {
+  //         console.log(`Adding ${isWord ? 'word' : 'char'} to password:`, randomChar);
+  //         selectedCharacters.push(randomChar);
+  //         password += randomChar;
+  //       }
+  //     }
+  //   } else {
+  //     console.log(`Skipping character. Exceeds password length.`);
+  //     const charSets = [];
   
-      if (useUpper && arr === upper) charSets.push(upper);
-      if (useLower && arr === lower) charSets.push(lower);
-      if (useNumbers && arr === numArr) charSets.push(numArr);
-      if (useSpecial && arr === special) charSets.push(special);
+  //     if (useUpper && arr === upper) charSets.push(upper);
+  //     if (useLower && arr === lower) charSets.push(lower);
+  //     if (useNumbers && arr === numArr) charSets.push(numArr);
+  //     if (useSpecial && arr === special) charSets.push(special);
   
-      while (password.length < passwordLength && charSets.length > 0) {
-        const randomSetIndex = Math.floor(Math.random() * charSets.length);
-        const randomSet = charSets[randomSetIndex];
-        let randomChar = getRandomCharacter(randomSet);
+  //     while (password.length < passwordLength && charSets.length > 0) {
+  //       const randomSetIndex = Math.floor(Math.random() * charSets.length);
+  //       const randomSet = charSets[randomSetIndex];
+  //       let randomChar = getRandomCharacter(randomSet);
   
-        if (randomChar.length + password.length <= passwordLength) {
-          console.log(`Adding char to password:`, randomChar);
-          selectedCharacters.push(randomChar);
-          password += randomChar;
-        } else {
-          charSets.splice(randomSetIndex, 1);
-        }
-      }
-    }
-  }
+  //       if (randomChar.length + password.length <= passwordLength) {
+  //         console.log(`Adding char to password:`, randomChar);
+  //         selectedCharacters.push(randomChar);
+  //         password += randomChar;
+  //       } else {
+  //         charSets.splice(randomSetIndex, 1);
+  //       }
+  //     }
+  //   }
+  // }
   
-  if (useWords && useUpper) {
-    addCharacters(lowerWords, true);
-    addCharacters(upperWords, true);
-  } else if (!useWords && useUpper) {
-    addCharacters(lower);
-    addCharacters(upper);
-  } else if (useWords) {
-    addCharacters(lowerWords, true);
-  } else {
-    addCharacters(lower);
-  }
+  // if (useWords && useUpper) {
+  //   addCharacters(lowerWords, true);
+  //   addCharacters(upperWords, true);
+  // } else if (!useWords && useUpper) {
+  //   addCharacters(lower);
+  //   addCharacters(upper);
+  // } else if (useWords) {
+  //   addCharacters(lowerWords, true);
+  // } else {
+  //   addCharacters(lower);
+  // }
 
   if (useSpecial) addCharacters(special, false);
 
@@ -194,6 +194,7 @@ generatePassForm.addEventListener("submit", function (event) {
   console.log('Form submission event triggered.');
   writePassword(event);
 });
+}
 
 // Future development:
 // Option for standard password with words or characters only for more security
