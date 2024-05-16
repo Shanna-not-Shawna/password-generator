@@ -6,7 +6,7 @@ var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 var passwordLength = 0;
-var useWords = false;
+// var useWords = false;
 var useSpecial = false;
 var useNumbers = false;
 var useUpper = false;
@@ -17,14 +17,14 @@ var generateBtn = document.querySelector("#generate");
 var resetBtn = document.querySelector("#resetBtn");
 var container = document.querySelector("#card");
 
-const wordsCheckbox = document.querySelector("#words");
+// const wordsCheckbox = document.querySelector("#words");
 const upperCheckbox = document.querySelector("#upper");
 const specialCheckbox = document.querySelector("#special");
 const numbersCheckbox = document.querySelector("#numbers");
 
-wordsCheckbox.addEventListener("change", () => {
-  console.log(`'Use Words' checkbox checked: ${wordsCheckbox.checked}`);
-});
+// wordsCheckbox.addEventListener("change", () => {
+//   console.log(`'Use Words' checkbox checked: ${wordsCheckbox.checked}`);
+// });
 
 upperCheckbox.addEventListener("change", () => {
   console.log(`'Use Upper' checkbox checked: ${upperCheckbox.checked}`);
@@ -50,7 +50,7 @@ const generatePassword = event => {
   }
 
   // const useExactLength = document.querySelector("#useExact").checked;
-  const useWords = document.querySelector("#words").checked;
+  // const useWords = document.querySelector("#words").checked;
   const useSpecial = document.querySelector("#special").checked;
   const useNumbers = document.querySelector("#numbers").checked;
   const useUpper = document.querySelector("#upper").checked;
@@ -65,7 +65,7 @@ const generatePassword = event => {
     return arr[randomIndex];
   }
 
-  const addCharacters = (arr, isWord) => {
+  // const addCharacters = (arr, isWord) => {
   //   if (!useWords || (useWords && isWord)) {
   //     while (password.length < passwordLength && arr.length > 0) {
   //       console.log(`Entering loop. Current password:`, password);
@@ -168,7 +168,7 @@ const resetForm = () => {
   const form = document.getElementById("generatePassForm");
   form.reset();
 
-  document.querySelector("#words").checked = false;
+  // document.querySelector("#words").checked = false;
   document.querySelector("#special").checked = false;
   document.querySelector("#numbers").checked = false;
   document.querySelector("#upper").checked = false;
