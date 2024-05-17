@@ -54,16 +54,16 @@ const generatePassword = event => {
   const useSpecial = document.querySelector("#special").checked;
   const useNumbers = document.querySelector("#numbers").checked;
   const useUpper = document.querySelector("#upper").checked;
-  const passwordLengthInput = document.querySelector("#length");
-  const passwordLength = parseInt(passwordLengthInput.value, 10);
+  // const passwordLengthInput = document.querySelector("#length");
+  // const passwordLength = parseInt(passwordLengthInput.value, 10);
 
-  const selectedCharacters = [];
+  // const selectedCharacters = [];
   let password = "";
 
-  const getRandomCharacter = arr => {
-    var randomIndex = Math.floor(Math.random() * arr.length);
-    return arr[randomIndex];
-  }
+  // const getRandomCharacter = arr => {
+  //   var randomIndex = Math.floor(Math.random() * arr.length);
+  //   return arr[randomIndex];
+  // }
 
   // const addCharacters = (arr, isWord) => {
   //   if (!useWords || (useWords && isWord)) {
@@ -194,7 +194,6 @@ generatePassForm.addEventListener("submit", function (event) {
   console.log('Form submission event triggered.');
   writePassword(event);
 });
-}
 
 // Future development:
 // Option for standard password with words or characters only for more security
