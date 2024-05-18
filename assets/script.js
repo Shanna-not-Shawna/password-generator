@@ -196,6 +196,7 @@ generatePassForm.addEventListener("submit", function (event) {
 });
 
 // Future development:
+// Refactor generatePassword function
 // Option for standard password with words or characters only for more security
 // Reconfigure function to use user's character length when words are selected
 // Style copy to clipboard button
