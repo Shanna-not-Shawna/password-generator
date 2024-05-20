@@ -27,15 +27,15 @@ const numbersCheckbox = document.querySelector("#numbers");
 // });
 
 upperCheckbox.addEventListener("change", () => {
-  console.log(`'Use Upper' checkbox checked: ${upperCheckbox.checked}`);
+  console.log(`Use Upper checkbox checked: ${upperCheckbox.checked}`);
 });
 
 specialCheckbox.addEventListener("change", () => {
-  console.log(`'Use Special' checkbox checked: ${specialCheckbox.checked}`);
+  console.log(`Use Special checkbox checked: ${specialCheckbox.checked}`);
 });
 
 numbersCheckbox.addEventListener("change", () => {
-  console.log(`'Use Numbers' checkbox checked: ${numbersCheckbox.checked}`);
+  console.log(`Use Numbers checkbox checked: ${numbersCheckbox.checked}`);
 });
 
 const getRandomCharacter = arr => {
