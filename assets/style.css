@@ -180,7 +180,7 @@ button[disabled] {
 }
 
 input:checked + .slider {
-  background-color: #66bb6a;
+  background-color: #0fa717;
 }
 
 input:checked + .slider:before {
