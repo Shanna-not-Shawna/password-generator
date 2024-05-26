@@ -148,9 +148,9 @@ button[disabled] {
 
 .switch {
   display: inline-block;
-  height: 14px;
+  height: 34px;
   position: relative;
-  width: 20px;
+  width: 60px;
 }
 
 .switch input {

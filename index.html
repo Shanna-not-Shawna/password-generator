@@ -23,20 +23,32 @@
             </div>
           </div>
           <div class="form-check form-switch">
-            <input class="switch" type="checkbox" role="slider" id="words">
-            <label class="form-check-label">Include words (less secure)</label>
+            <label class="switch">
+              <input type="checkbox" id="useExact">
+              <span class="slider round"></span>
+            </label>
+            <span>Use Exact Number</span>
           </div>
           <div class="form-check form-switch">
-            <input class="switch" type="checkbox" role="switch" id="upper">
-            <label class="form-check-label">Include uppercase letters</label>
+            <label class="switch">
+              <input type="checkbox" id="upper">
+              <span class="slider round"></span>
+            </label>
+            <span>Include uppercase letters</span>
           </div>
           <div class="form-check form-switch">
-            <input class="switch" type="checkbox" role="switch" id="special">
-            <label class="form-check-label">Include special characters</label>
+            <label class="switch">
+              <input type="checkbox" id="special">
+              <span class="slider round"></span>
+            </label>
+            <span>Include special characters</span>
           </div>
           <div class="form-check form-switch">
-            <input class="switch" type="checkbox" role="switch" id="numbers">
-            <label class="form-check-label">Include numbers</label>
+            <label class="switch">
+              <input type="checkbox" id="numbers">
+              <span class="slider round"></span>
+            </label>
+            <span>Include numbers</span>
           </div>
           <button type="submit" id="generate" class="btn btn-primary">Generate Password</button>
           <button id="resetBtn" style="display: none;">Reset Form</button>
