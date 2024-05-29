@@ -1,21 +1,21 @@
-// var upperWords = ["Adventurous", "Amazing", "Aqua", "Azure", "Beautiful", "Beige", "Black", "Blue", "Blissful", "Brown", "Bougie", "Burgundy", "Charming", "Clever", "Coral", "Crimson", "Cyan", "Daring", "Delightful", "Dazzling", "Elegant", "Energetic", "Ethereal", "Fantastic", "Fascinating", "Friendly", "Gorgeous", "Graceful", "Green", "Harmonious", "Happy", "Incredible", "Indigo", "Intelligent", "Inventive", "Ivory", "Jubilant", "Joyful", "Kind", "Kinetic", "Lavender", "Lilac", "Lovely", "Lively", "Magnificent", "Magenta", "Maroon", "Noble", "Nice", "Optimistic", "Outstanding", "Peaceful", "Playful", "Quick", "Radiant", "Red", "Silver", "Sincere", "Talented", "Teal", "Tranquil", "Unique", "Understanding", "Valuable", "Vibrant", "White", "Wonderful", "Witty", "Youthful", "Yellow", "Zealous"]
-// var lowerWords = ["air", "airplane", "appliance", "apple", "at", "ax", "basement", "bathtub", "bed", "book", "brush", "cabinet", "car", "chair", "city", "classroom", "clock", "coffee", "computer", "cup", "curtain", "desk", "dog", "dolphin", "door", "drawer", "do", "earthquake", "elevator", "elephant", "faucet", "family", "five", "floor", "flower", "fork", "food", "four", "friend", "glass", "go", "hat", "heart", "house", "if", "in", "is", "it", "key", "lamp", "lemon", "light", "lime", "me", "mirror", "movie", "music", "my", "no", "ocean", "ok", "one", "paper", "pen", "pear", "phone", "pineapple", "plate", "pot", "river", "rug", "school", "scissors", "shelf", "shirt", "shoe", "sink", "soap", "sock", "six", "spoon", "suitcase", "sun", "table", "telephone", "three", "time", "to", "toothbrush", "train", "tree", "two", "up", "us", "vase", "window"]
-var special = ["?", "!", "@", "#", "$", "%", "&", "*"]
-var numArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+// const upperWords = ["Adventurous", "Amazing", "Aqua", "Azure", "Beautiful", "Beige", "Black", "Blue", "Blissful", "Brown", "Bougie", "Burgundy", "Charming", "Clever", "Coral", "Crimson", "Cyan", "Daring", "Delightful", "Dazzling", "Elegant", "Energetic", "Ethereal", "Fantastic", "Fascinating", "Friendly", "Gorgeous", "Graceful", "Green", "Harmonious", "Happy", "Incredible", "Indigo", "Intelligent", "Inventive", "Ivory", "Jubilant", "Joyful", "Kind", "Kinetic", "Lavender", "Lilac", "Lovely", "Lively", "Magnificent", "Magenta", "Maroon", "Noble", "Nice", "Optimistic", "Outstanding", "Peaceful", "Playful", "Quick", "Radiant", "Red", "Silver", "Sincere", "Talented", "Teal", "Tranquil", "Unique", "Understanding", "Valuable", "Vibrant", "White", "Wonderful", "Witty", "Youthful", "Yellow", "Zealous"]
+// const lowerWords = ["air", "airplane", "appliance", "apple", "at", "ax", "basement", "bathtub", "bed", "book", "brush", "cabinet", "car", "chair", "city", "classroom", "clock", "coffee", "computer", "cup", "curtain", "desk", "dog", "dolphin", "door", "drawer", "do", "earthquake", "elevator", "elephant", "faucet", "family", "five", "floor", "flower", "fork", "food", "four", "friend", "glass", "go", "hat", "heart", "house", "if", "in", "is", "it", "key", "lamp", "lemon", "light", "lime", "me", "mirror", "movie", "music", "my", "no", "ocean", "ok", "one", "paper", "pen", "pear", "phone", "pineapple", "plate", "pot", "river", "rug", "school", "scissors", "shelf", "shirt", "shoe", "sink", "soap", "sock", "six", "spoon", "suitcase", "sun", "table", "telephone", "three", "time", "to", "toothbrush", "train", "tree", "two", "up", "us", "vase", "window"]
+const special = ["?", "!", "@", "#", "$", "%", "&", "*"]
+const numArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+const lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+const upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-var passwordLength = 0;
-// var useWords = false;
-var useSpecial = false;
-var useNumbers = false;
-var useUpper = false;
-var useLower = false;
-var isFirstClick = true;
+const passwordLength = 0;
+// const useWords = false;
+const useSpecial = false;
+const useNumbers = false;
+const useUpper = false;
+const useLower = false;
+const isFirstClick = true;
 
-var generateBtn = document.querySelector("#generate");
-var resetBtn = document.querySelector("#resetBtn");
-var container = document.querySelector("#card");
+const generateBtn = document.querySelector("#generate");
+const resetBtn = document.querySelector("#resetBtn");
+const container = document.querySelector("#card");
 
 // const wordsCheckbox = document.querySelector("#words");
 const upperCheckbox = document.querySelector("#upper");
@@ -39,7 +39,7 @@ numbersCheckbox.addEventListener("change", () => {
 });
 
 const getRandomCharacter = arr => {
-  var randomIndex = Math.floor(Math.random() * arr.length);
+  const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
 
@@ -61,7 +61,7 @@ const generatePassword = event => {
   let password = "";
 
   // const getRandomCharacter = arr => {
-  //   var randomIndex = Math.floor(Math.random() * arr.length);
+  //   const randomIndex = Math.floor(Math.random() * arr.length);
   //   return arr[randomIndex];
   // }
 
@@ -147,7 +147,7 @@ const writePassword = (event) => {
 
 container.addEventListener("click", function (event) {
   console.log('Container click event triggered.');
-  var target = event.target;
+  const target = event.target;
 
   if (target.id === "resetBtn") {
     event.preventDefault();
