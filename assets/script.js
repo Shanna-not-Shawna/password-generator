@@ -178,7 +178,7 @@ const resetForm = () => {
   generateBtn.textContent = "Generate Password";
   resetBtn.style.display = "none";
 
-  isFirstClick = true;
+  // isFirstClick = true;
 }
 
 const copyText = () => {
