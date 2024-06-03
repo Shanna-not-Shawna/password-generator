@@ -199,6 +199,7 @@ generatePassForm.addEventListener("submit", function (event) {
 // Refactor generatePassword function
 // Option for standard password with words or characters only for more security
 // Reconfigure function to use user's character length when words are selected
+// add failsafe passwords in the event user's length is unattainable
 // Style copy to clipboard button
 // Add password tips to page layout
 // Style reset form
