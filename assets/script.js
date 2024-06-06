@@ -22,9 +22,9 @@ const upperCheckbox = document.querySelector("#upper");
 const specialCheckbox = document.querySelector("#special");
 const numbersCheckbox = document.querySelector("#numbers");
 
-wordsCheckbox.addEventListener("change", () => {
-  console.log(`'Use Words' checkbox checked: ${wordsCheckbox.checked}`);
-});
+// wordsCheckbox.addEventListener("change", () => {
+//   console.log(`'Use Words' checkbox checked: ${wordsCheckbox.checked}`);
+// });
 
 upperCheckbox.addEventListener("change", () => {
   console.log(`Use Upper checkbox checked: ${upperCheckbox.checked}`);
@@ -49,8 +49,8 @@ const generatePassword = event => {
     event.preventDefault();
   }
 
-  const useExactLength = document.querySelector("#useExact").checked;
-  const useWords = document.querySelector("#words").checked;
+  // const useExactLength = document.querySelector("#useExact").checked;
+  // const useWords = document.querySelector("#words").checked;
   const useSpecial = document.querySelector("#special").checked;
   const useNumbers = document.querySelector("#numbers").checked;
   const useUpper = document.querySelector("#upper").checked;
