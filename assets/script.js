@@ -9,7 +9,7 @@ const passwordLength = 0;
 const useWords = false;
 const useSpecial = false;
 const useNumbers = false;
-const useUpper = false;
+const useUpper = false;''
 const useLower = false;
 const isFirstClick = true;
 
@@ -22,9 +22,9 @@ const upperCheckbox = document.querySelector("#upper");
 const specialCheckbox = document.querySelector("#special");
 const numbersCheckbox = document.querySelector("#numbers");
 
-// wordsCheckbox.addEventListener("change", () => {
-//   console.log(`'Use Words' checkbox checked: ${wordsCheckbox.checked}`);
-// });
+wordsCheckbox.addEventListener("change", () => {
+  console.log(`'Use Words' checkbox checked: ${wordsCheckbox.checked}`);
+});
 
 upperCheckbox.addEventListener("change", () => {
   console.log(`Use Upper checkbox checked: ${upperCheckbox.checked}`);
@@ -51,11 +51,11 @@ const generatePassword = event => {
 
   // const useExactLength = document.querySelector("#useExact").checked;
   // const useWords = document.querySelector("#words").checked;
-  const useSpecial = document.querySelector("#special").checked;
-  const useNumbers = document.querySelector("#numbers").checked;
-  const useUpper = document.querySelector("#upper").checked;
-  const passwordLengthInput = document.querySelector("#length");
-  const passwordLength = parseInt(passwordLengthInput.value, 10);
+  // const useSpecial = document.querySelector("#special").checked;
+  // const useNumbers = document.querySelector("#numbers").checked;
+  // const useUpper = document.querySelector("#upper").checked;
+  // const passwordLengthInput = document.querySelector("#length");
+  // const passwordLength = parseInt(passwordLengthInput.value, 10);
 
   const selectedCharacters = [];
   let password = "";
@@ -66,8 +66,8 @@ const generatePassword = event => {
   }
 
   const addCharacters = (arr, isWord) => {
-    if (!useWords || (useWords && isWord)) {
-      while (password.length < passwordLength && arr.length > 0) {
+    if ((!useWords || (useWords && isWord)) && password.length < passwordLength) {
+      while (arr.length > 0) {
         console.log(`Entering loop. Current password:`, password);
         let randomChar = getRandomCharacter(arr);
   
@@ -79,32 +79,32 @@ const generatePassword = event => {
           console.log(`Adding ${isWord ? 'word' : 'char'} to password:`, randomChar);
           selectedCharacters.push(randomChar);
           password += randomChar;
-        }
-      }
-    } else {
-      console.log(`Skipping character. Exceeds password length.`);
-      const charSets = [];
-  
-      if (useUpper && arr === upper) charSets.push(upper);
-      if (useLower && arr === lower) charSets.push(lower);
-      if (useNumbers && arr === numArr) charSets.push(numArr);
-      if (useSpecial && arr === special) charSets.push(special);
-  
-      while (password.length < passwordLength && charSets.length > 0) {
-        const randomSetIndex = Math.floor(Math.random() * charSets.length);
-        const randomSet = charSets[randomSetIndex];
-        let randomChar = getRandomCharacter(randomSet);
-  
-        if (randomChar.length + password.length <= passwordLength) {
-          console.log(`Adding char to password:`, randomChar);
-          selectedCharacters.push(randomChar);
-          password += randomChar;
         } else {
-          charSets.splice(randomSetIndex, 1);
+          break;
         }
       }
-    }
-  }
+    // } else {
+    //   console.log(`Skipping character. Exceeds password length.`);
+    //   const charSets = [];
+  
+    //   if (useUpper && arr === upper) charSets.push(upper);
+    //   if (useLower && arr === lower) charSets.push(lower);
+    //   if (useNumbers && arr === numArr) charSets.push(numArr);
+    //   if (useSpecial && arr === special) charSets.push(special);
+  
+    //   while (password.length < passwordLength && charSets.length > 0) {
+    //     const randomSetIndex = Math.floor(Math.random() * charSets.length);
+    //     const randomSet = charSets[randomSetIndex];
+    //     let randomChar = getRandomCharacter(randomSet);
+  
+    //     if (randomChar.length + password.length <= passwordLength) {
+    //       console.log(`Adding char to password:`, randomChar);
+    //       selectedCharacters.push(randomChar);
+    //       password += randomChar;
+    //     } else {
+    //       charSets.splice(randomSetIndex, 1);
+        }
+      }
   
   if (useWords && useUpper) {
     addCharacters(lowerWords, true);
@@ -124,6 +124,7 @@ const generatePassword = event => {
 
   console.log('Generated password', password);
   return password;
+
 };
 
 const writePassword = (event) => {
