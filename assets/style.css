@@ -169,7 +169,7 @@ button[disabled] {
 }
 
 .slider:before {
-  background-color: #fff;
+  background-color: #e2e1e1;
   bottom: 4px;
   content: "";
   height: 15px;

@@ -11,7 +11,7 @@ const useSpecial = false;
 const useNumbers = false;
 const useUpper = false;''
 const useLower = false;
-const isFirstClick = true;
+let isFirstClick = true;
 
 const generateBtn = document.querySelector("#generate");
 const resetBtn = document.querySelector("#resetBtn");
