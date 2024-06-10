@@ -204,4 +204,4 @@ generatePassForm.addEventListener("submit", function (event) {
 // build passwords in lowerwords, upperwords then numbers and symbols order
 // Style copy to clipboard button
 // Add password tips to page layout
-// Style reset form
+// Style reset form button
