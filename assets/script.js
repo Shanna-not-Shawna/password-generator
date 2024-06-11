@@ -60,11 +60,6 @@ const generatePassword = event => {
   const selectedCharacters = [];
   let password = "";
 
-  const getRandomCharacter = arr => {
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    return arr[randomIndex];
-  }
-
   const addCharacters = (arr, isWord) => {
     if ((!useWords || (useWords && isWord)) && password.length < passwordLength) {
       while (arr.length > 0) {
@@ -83,26 +78,26 @@ const generatePassword = event => {
           break;
         }
       }
-    // } else {
-    //   console.log(`Skipping character. Exceeds password length.`);
-    //   const charSets = [];
+    } else {
+      console.log(`Skipping character. Exceeds password length.`);
+      const charSets = [];
   
-    //   if (useUpper && arr === upper) charSets.push(upper);
-    //   if (useLower && arr === lower) charSets.push(lower);
-    //   if (useNumbers && arr === numArr) charSets.push(numArr);
-    //   if (useSpecial && arr === special) charSets.push(special);
+      if (useUpper && arr === upper) charSets.push(upper);
+      if (useLower && arr === lower) charSets.push(lower);
+      if (useNumbers && arr === numArr) charSets.push(numArr);
+      if (useSpecial && arr === special) charSets.push(special);
   
-    //   while (password.length < passwordLength && charSets.length > 0) {
-    //     const randomSetIndex = Math.floor(Math.random() * charSets.length);
-    //     const randomSet = charSets[randomSetIndex];
-    //     let randomChar = getRandomCharacter(randomSet);
+      while (password.length < passwordLength && charSets.length > 0) {
+        const randomSetIndex = Math.floor(Math.random() * charSets.length);
+        const randomSet = charSets[randomSetIndex];
+        let randomChar = getRandomCharacter(randomSet);
   
-    //     if (randomChar.length + password.length <= passwordLength) {
-    //       console.log(`Adding char to password:`, randomChar);
-    //       selectedCharacters.push(randomChar);
-    //       password += randomChar;
-    //     } else {
-    //       charSets.splice(randomSetIndex, 1);
+        if (randomChar.length + password.length <= passwordLength) {
+          console.log(`Adding char to password:`, randomChar);
+          selectedCharacters.push(randomChar);
+          password += randomChar;
+        } else {
+          charSets.splice(randomSetIndex, 1);
         }
       }
   
@@ -195,6 +190,7 @@ generatePassForm.addEventListener("submit", function (event) {
   console.log('Form submission event triggered.');
   writePassword(event);
 });
+}};
 
 // Future development:
 // Refactor generatePassword function
