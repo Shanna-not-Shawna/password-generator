@@ -177,13 +177,13 @@ const resetForm = () => {
   isFirstClick = true;
 }
 
-const copyText = () => {
+// const copyText = () => {
   let copyText = document.getElementById("password");
   copyText.select();
   copyText.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(copyText.value);
   window.getSelection().removeAllRanges();
-}
+// }
 
 const generatePassForm = document.querySelector("#generatePassForm");
 generatePassForm.addEventListener("submit", function (event) {
