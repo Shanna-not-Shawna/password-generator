@@ -198,5 +198,4 @@ generatePassForm.addEventListener("submit", function (event) {
 // Reconfigure function to use user's character length when words are selected
 // add failsafe passwords in the event user's length is unattainable
 // build passwords in lowerwords, upperwords then numbers and symbols order
-// Style copy to clipboard button
 // Add password tips to page layout
