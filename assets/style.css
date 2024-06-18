@@ -186,7 +186,7 @@ button[disabled] {
 }
 
 .slider:before {
-  background-color: #e2e1e1;
+  background-color: #d8d6d6;
   bottom: 4px;
   content: "";
   height: 15px;
