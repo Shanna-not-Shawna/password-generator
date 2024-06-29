@@ -199,4 +199,4 @@ generatePassForm.addEventListener("submit", function (event) {
 // add failsafe passwords in the event user's length is unattainable
 // build passwords in lowerwords, upperwords then numbers and symbols order
 // if addWords is chosen, see about changing s's to $ etc.
-// Add password tips to page layout, include hacking chart
+// Add password tips to page layout, include hacking timeline chart
