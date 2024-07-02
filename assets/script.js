@@ -200,4 +200,4 @@ generatePassForm.addEventListener("submit", function (event) {
 // build passwords in lowerwords, upperwords then numbers and symbols order
 // if addWords is chosen, see about changing s's to $ etc.
 // Add password tips to page layout, include hacking timeline chart
-// Add option for pass phrase? "I like...", "I want a...", "Very special...", "Hand me a..."
+// Add option for pass phrase? "I like...", "I want a...", "Very special...", "Hand me a...", "I saw a..."
