@@ -193,11 +193,11 @@ generatePassForm.addEventListener("submit", function (event) {
 }};
 
 // Future development:
-// Refactor generatePassword function
-// Option for standard password with words or characters only for more security
-// Reconfigure function to use user's character length when words are selected
-// add failsafe passwords in the event user's length is unattainable
-// build passwords in lowerwords, upperwords then numbers and symbols order
-// if addWords is chosen, see about changing s's to $ etc.
-// Add password tips to page layout, include hacking timeline chart
-// Add option for pass phrase? "I like...", "I want a...", "Very special...", "Hand me a...", "I saw a..."
+// -Refactor generatePassword function
+// -Option for standard password with words or characters only for more security
+// -Reconfigure function to use user's character length when words are selected
+// -add failsafe passwords in the event user's length is unattainable
+// -build passwords in lowerwords, upperwords then numbers and symbols order
+// -if addWords is chosen, see about changing s's to $ etc.
+// -Add password tips to page layout, include hacking timeline chart
+// -Add option for pass phrase? "I like...", "I want a...", "Very special...", "Hand me a...", "I saw a..."
