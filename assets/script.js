@@ -9,7 +9,7 @@ let passwordLength = 0;
 let useWords = false;
 let useSpecial = false;
 let useNumbers = false;
-let useUpper = false;''
+let useUpper = false;
 let useLower = false;
 let isFirstClick = true;
 
@@ -190,7 +190,7 @@ generatePassForm.addEventListener("submit", function (event) {
   console.log('Form submission event triggered.');
   writePassword(event);
 });
-}};
+}}
 
 // Future development:
 // -Refactor generatePassword function
